@@ -6,10 +6,13 @@ export function main() {
 
     while (true) {
 
-        console.log(colors.bg.black, colors.fg.blue, "-=".repeat(30))
+        console.log(colors.bg.black, colors.fg.blue,"-=".repeat(30))
         console.log("                                                         ");
-        console.log("                    Banco Generation                     ");
         console.log("                                                         ");
+        console.log("                                                         ");
+        console.log("                        Banco JS                         ");
+        console.log("                                                         ");
+        console.log("-=".repeat(30));
         console.log("               [1] - Criar Conta                         ");
         console.log("               [2] - Listar todas as contas              ");
         console.log("               [3] - Buscar Conta por Numero             ");
@@ -30,53 +33,46 @@ export function main() {
             case 1:
                 console.log(colors.fg.bluestrong, 
                     "\n\nCriar Conta\n\n", colors.reset);
-                keyPress()
                 break;
             case 2:
                 console.log(colors.fg.bluestrong, 
                     "\n\nListar todas as Contas\n\n", colors.reset);
-                keyPress()
                 break;
             case 3:
                 console.log(colors.fg.bluestrong, 
                     "\n\nConsultar dados da Conta - por número\n\n", colors.reset);
-                keyPress()
                 break;
             case 4:
                 console.log(colors.fg.bluestrong, 
                     "\n\nAtualizar dados da Conta\n\n", colors.reset);
-                keyPress()
                 break;
             case 5:
                 console.log(colors.fg.bluestrong, 
                     "\n\nApagar uma Conta\n\n", colors.reset);
-                keyPress()
                 break;
             case 6:
                 console.log(colors.fg.bluestrong, 
                     "\n\nSaque\n\n", colors.reset);
 
-                keyPress()
                 break;
             case 7:
                 console.log(colors.fg.bluestrong, 
                     "\n\nDepósito\n\n", colors.reset);
-                keyPress()
                 break;
             case 8:
                 console.log(colors.fg.bluestrong, 
                     "\n\nTransferência entre Contas\n\n", colors.reset);
-                keyPress()
                 break;
             case 9:
+                console.log("-=".repeat(30));
                 console.log(colors.fg.bluestrong, 
-                    "\n\nSair\n\n", colors.reset);
-                keyPress()
-                break;
+                    "\n\nBanco JS te deseja um excelente dia ! \n\n", colors.reset);
+                sobre();
+                process.exit(0); // Saída do programa 
+
             default:
                 console.log(colors.fg.bluestrong, 
                     "\nOpção Inválida!\n", colors.reset);
-                keyPress()
                 break;
         }
     }
@@ -91,10 +87,6 @@ export function sobre(): void{
     console.log("-=".repeat(30));
 }
 
-function keyPress(): void {
-    console.log(colors.reset, "\n");
-    console.log("\nPressione enter para continuar...\n");
-    readlinesync.prompt();
-}
+
 
 main(); //Função Principal
