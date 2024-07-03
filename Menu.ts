@@ -1,4 +1,4 @@
-import readlinesync = require("readline-sync");
+import * as readlinesync from "readline-sync"
 import { colors } from './src/util/Colors';
 
 export function main() {
@@ -66,6 +66,11 @@ export function main() {
             case 8:
                 console.log(colors.fg.bluestrong, 
                     "\n\nTransferência entre Contas\n\n", colors.reset);
+                keyPress()
+                break;
+            case 9:
+                console.log(colors.fg.bluestrong, 
+                    "\n\nSair\n\n", colors.reset);
                 keyPress()
                 break;
             default:
