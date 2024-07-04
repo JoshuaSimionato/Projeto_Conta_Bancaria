@@ -1,6 +1,6 @@
+export class Conta{
     
 // Definir os Atributos da Classe (Características)
-export class Conta{
     private _numero: number;
     private _agencia: number;
     private _tipo: number;
@@ -52,6 +52,7 @@ export class Conta{
 
     //metodos auxiliares
     public sacar(valor: number): boolean {
+
         if (this._saldo < valor) {
             console.log("\n Saldo Insuficiente!");
             return false;
@@ -61,7 +62,7 @@ export class Conta{
         return true;
     }
 
-    public depositar(valor: number): void{
+    public depositar(valor: number): void {
         this._saldo = this._saldo + valor;
     }
 
@@ -84,7 +85,7 @@ export class Conta{
         console.log(`Número da agência: ${this._agencia}`);
         console.log(`Tipo da conta: ${this._tipo}`);
         console.log(`Titular da conta: ${this._titular}`);
-        console.log(`Saldo da conta: ${this._saldo}`);
+        console.log(`Saldo da conta: ${this._saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
     }
 
 
