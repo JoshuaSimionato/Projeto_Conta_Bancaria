@@ -5,7 +5,7 @@ import { ContaPoupanca } from "./src/model/ContaPoupanca";
 import { ContaController } from "./src/controller/ContaController";
 
 export function main() {
-    let menu, numero, agencia, tipo, saldo, limite, aniversario: number; //Guarda as informações que usuário digitar
+    let menu, numero, agencia, tipo, saldo, limite, aniversario: number; //Guarda as informações que usuário digitou
     let titular: string;
     const tipoContas = ['Conta Corrente', 'Conta Poupança']; // 
     const contas: ContaController = new ContaController();
