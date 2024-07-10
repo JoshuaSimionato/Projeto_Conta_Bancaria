@@ -1,6 +1,5 @@
 import * as readlinesync from "readline-sync"
 import { colors } from './src/util/Colors';
-import { Conta } from './src/model/Conta'
 import { ContaCorrente } from "./src/model/ContaCorrente";
 import { ContaPoupanca } from "./src/model/ContaPoupanca";
 import { ContaController } from "./src/controller/ContaController";
@@ -19,7 +18,7 @@ export function main() {
 
     // Novas Instâncias da Classe Poupança (Objetos)
     contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 5789, 2, 'Camila Ribeiro', 2523443.00, 10));
-    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 3214, 2, 'Camila Ribeiro', 2523443.00, 10));
+    contas.cadastrar(new ContaPoupanca(contas.gerarNumero(), 3214, 2, 'Vera Simionato', 2523443.00, 10));
 
 
     while (true) {
@@ -39,7 +38,8 @@ export function main() {
         console.log("               [6] - Sacar                               ");
         console.log("               [7] - Depositar                           ");
         console.log("               [8] - Transferir valores entre Contas     ");
-        console.log("               [9] - Sair                                ");
+        console.log("               [9] - Procurar por Titular                ");
+        console.log("               [0] - Sair                               ");
         console.log("                                                         ");
         console.log("-=".repeat(30));
         console.log("                                                          ",
@@ -192,11 +192,20 @@ export function main() {
                 break;
 
             case 9:
+                console.log(colors.fg.bluestrong,
+                    "\nProcurar por Titular\n", colors.reset);
+                console.log("Digite o nome do titular: ");
+                titular = readlinesync.question("");
+                contas.procutarPorTitular(titular);
+                keyPress();
+                break
+                
+            case 0:
                 console.log("-=".repeat(30));
                 console.log(colors.fg.bluestrong,
                     "\nBanco JS te deseja um excelente dia !\n", colors.reset);
                 sobre();
-                process.exit(0); // Saída do programa 
+                process.exit(0);
 
             default:
                 console.log(colors.fg.bluestrong,

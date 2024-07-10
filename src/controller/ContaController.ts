@@ -11,6 +11,20 @@ export class ContaController implements ContaRepository {
     // Crontrolar os números das Contas
     numero: number = 0;
 
+
+    procutarPorTitular(titular: string): void {
+        let titularLowerCase = titular.toLowerCase(); // Converter o nome digitado para minúsculas
+        let buscaPorTitular = this.listaContas.filter(c => c.titular.toLowerCase().includes(titularLowerCase)); // Converter o nome armazenado para minúsculas
+        
+        if (buscaPorTitular.length > 0) {
+            buscaPorTitular.forEach(conta => conta.visualizar());
+        } else {
+            console.log(`Nenhuma conta encontrada para o titular: ${titular}`);
+        }
+    }
+
+    
+
     listarTodas(): void {
         for (let conta of this.listaContas) {  // Percorre o array
             conta.visualizar();
@@ -29,7 +43,7 @@ export class ContaController implements ContaRepository {
 
         if (buscaConta !== null) {
             this.listaContas.splice(this.listaContas.indexOf(buscaConta), 1);
-            console.log('\nA conta foi excluida!');
+            console.log(`\nA conta numero: ${numero} foi apagada com sucesso !`);
         } else
             console.log(colors.fg.red, "\nA Conta numero: " + numero
                 + " não foi encontrada!", colors.reset);
@@ -84,7 +98,7 @@ export class ContaController implements ContaRepository {
 
         if (buscaProduto != null) {
             this.listaContas[this.listaContas.indexOf(buscaProduto)] = conta;
-            console.log(`\nA conta foi atualizada!`);
+            console.log(`\nA conta numero: ${conta.numero} foi atualizada`);
 
         } else
             console.log(`\n A conta numero: ${conta.numero} não foi encontrada!`);
