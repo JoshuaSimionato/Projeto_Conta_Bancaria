@@ -16,39 +16,46 @@ export abstract class Conta{
 		this._saldo = saldo;
 	}
 
+    public get numero() {
+        return this._numero;
+    }
 
-	public get agencia(): number {
-		return this._agencia;
-	}
+    public set numero(numero: number) {
+        this._numero = numero;
+    }
 
-    
-	public get titular(): string {
-		return this._titular;
-	}
+    public get agencia() {
+        return this._agencia;
+    }
 
-	public get saldo(): number {
-		return this._saldo;
-	}
+    public set agencia(agencia: number) {
+        this._agencia = agencia;
+    }
 
-	public set numero(value: number) {
-		this._numero = value;
-	}
+    public get tipo() {
+        return this._tipo;
+    }
 
-	public set agencia(value: number) {
-		this._agencia = value;
-	}
+    public set tipo(tipo: number) {
+        this._tipo = tipo;
+    }
 
-	public set tipo(value: number) {
-		this._tipo = value;
-	}
+    public get titular() {
+        return this._titular;
+    }
 
-	public set titular(value: string) {
-		this._titular = value;
-	}
+    public set titular(titular: string) {
+        this._titular = titular;
+    }
 
-	public set saldo(value: number) {
-		this._saldo = value;
-	}
+    public get saldo() {
+        return this._saldo;
+    }
+
+    public set saldo(saldo: number) {
+        this._saldo = saldo;
+    }
+
 
     //metodos auxiliares
     public sacar(valor: number): boolean {
@@ -78,14 +85,15 @@ export abstract class Conta{
         }
 
         // Método para visualizar todos os dados do objeto
-        console.log(`***********************************`);
-        console.log(`Dados da Conta:`);
-        console.log(`***********************************`);
-        console.log(`Número da conta: ${this._numero}`);
-        console.log(`Número da agência: ${this._agencia}`);
-        console.log(`Tipo da conta: ${this._tipo}`);
-        console.log(`Titular da conta: ${this._titular}`);
-        console.log(`Saldo da conta: ${this._saldo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`);
+        console.log("\n******************************************");
+        console.log("Dados da Conta:");
+        console.log("********************************************");
+        console.log("Numero da Conta: " + this._numero);
+        console.log("Agência: " + this._agencia);
+        console.log("Tipo da Conta: " + tipo);
+        console.log("Titular: " + this._titular);
+        console.log("Saldo: " + this._saldo.toFixed(2));
+
     }
 
 }
