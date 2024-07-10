@@ -6,7 +6,7 @@ import { ContaPoupanca } from "./src/model/ContaPoupanca";
 import { ContaController } from "./src/controller/ContaController";
 
 export function main() {
-    var menu, numero, agencia, tipo, saldo, limite, aniversario: number; //Guarda as informações que usuário digitou
+    let menu, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino: number; //Guarda as informações que usuário digitou
     let titular: string;
 
     const tipoContas = ['Conta Corrente', 'Conta Poupanca']; // 
@@ -156,18 +156,38 @@ export function main() {
             case 6:
                 console.log(colors.fg.bluestrong,
                     "\nSaque\n", colors.reset);
+                console.log("\nDigite o número da Conta: ");
+                numero = readlinesync.questionInt("");
+                console.log("\nDigite o valor do saque: ");
+                valor = readlinesync.questionFloat("");
+                contas.sacar(numero, valor)
                 keyPress()
                 break;
 
             case 7:
                 console.log(colors.fg.bluestrong,
                     "\nDepósito\n", colors.reset);
+                console.log("\nDigite o número da Conta: ");
+                numero = readlinesync.questionInt("");
+                console.log("\nDigite o valor do depósito: ");
+                valor = readlinesync.questionFloat("");
+                contas.depositar(numero, valor)
                 keyPress()
                 break;
 
             case 8:
                 console.log(colors.fg.bluestrong,
                     "\nTransferência entre Contas\n", colors.reset);
+                console.log("\nDigite o número da Conta de Origem: ");
+                numero = readlinesync.questionInt("");
+
+                console.log("\nDigite o numero da Conta de Destino: ");
+                numeroDestino = readlinesync.questionFloat("");
+
+                console.log("\nDigite o valor do saque: ");
+                valor = readlinesync.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor)
                 keyPress()
                 break;
 
